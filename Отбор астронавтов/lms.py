@@ -63,10 +63,11 @@ def form_sample():
                             integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
                             crossorigin="anonymous">
                             <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
-                            <title>Пример формы</title>
+                            <title>Отбор астронавтов</title>
                           </head>
                           <body>
-                            <h1>Форма для регистрации в суперсекретной системе</h1>
+                            <h1 align="center"> Анкета претендента</h1>
+                            <h2 align="center">на участие в миссии</h2>
                             <div>
                                 <form class="login_form" method="post">
                                     <textarea class="form-control" id="about" rows="3" placeholder="Введите фамилию" name="last_name"></textarea>
@@ -129,7 +130,7 @@ def form_sample():
                                         <input type="checkbox" class="form-check-input" id="acceptRules" name="accept">
                                         <label class="form-check-label" for="acceptRules">Готов быть добровольцем</label>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Записаться</button>
+                                    <button type="submit" class="btn btn-primary">Отправить</button>
                                 </form>
                           </body>
                         </html>'''
