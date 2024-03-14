@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if prof == 'engineers'%}
+    {% if prof == 'инженер' or prof == 'строитель' %}
         <h2 style="text-align: center">Инженерные тренажеры</h2>
         <center>
             <img src="../static/img/ing.png"
                 alt="здесь должна была быть картинка, но не нашлась">
         </center>
-    {% elif prof == 'scientists'%}
+    {% else %}
         <h2 style="text-align: center">Научные симуляторы</h2>
         <center>
             <img src="../static/img/sci.png"
