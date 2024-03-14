@@ -10,14 +10,9 @@ def index():
     return render_template('index.html', title='mars one')
 
 
-@app.route('/training/engineers')
-def training_engineers():
-    return render_template('training.html', title='mars one', prof='engineers')
-
-
-@app.route('/training/scientists')
-def training_scientists():
-    return render_template('training.html', title='mars one', prof='scientists')
+@app.route('/training/<prof>')
+def training_engineers(prof):
+    return render_template('training.html', title='mars one', prof=prof)
 
 
 if __name__ == '__main__':
