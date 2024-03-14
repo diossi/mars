@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <title>Привет, Яндекс!</title>
+</head>
+<h4>surname: {{form.surname.data}}</h4>
+<h4>name: {{form.name.data}}</h4>
+<h4>education: {{form.education.data}}</h4>
+<h4>profession: {{form.profession.data}}</h4>
+<h4>sex: {{form.sex.data}}</h4>
+<h4>motivation: {{form.motivation.data}}</h4>
+<h4>ready: {{form.ready.data}}</h4>
+
+{% endblock %}

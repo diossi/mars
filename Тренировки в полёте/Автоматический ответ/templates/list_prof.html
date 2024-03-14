@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if list == 'ol'%}
+        <h2>Список Профессий</h2>
+        {% for prof in list_prof %}
+            <div>{{loop.index}} {{prof}}</div>
+        {% endfor %}
+    {% elif list == 'ul'%}
+        <h2>Список Профессий</h2>
+        {% for prof in list_prof %}
+            <li>{{prof}}</li>
+        {% endfor %}
+    {% else %}
+    {% endif %}
+{% endblock %}
