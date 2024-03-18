@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% set member = members | random %}
+    <h2>{{member.surname}} {{member.name}}</h2>
+    <img src='{{member.image}}'>
+    <h2>{{member.prof}}</h2>
+
+{% endblock %}
