@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+    </head>
+    <h2>Пейзажи марса</h2>
+    {% if flag == True %}
+    <img src='../static/img/{{form.photo.data}}'>
+    {% endif %}
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.photo.label }}<br>
+            {{ form.photo(class="form-control") }}<br>
+            {% for error in form.photo.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+        </p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    </form>
+{% endblock %}
