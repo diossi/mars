@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Записи в блоге</h1>
+    {% for item in jobs%}
+        <div class="col-md6 border rounded">
+            <h2>Action # {{item.id}}</h2>
+            <div>
+                Название работ - {{item.job}}
+            </div>
+            <div>
+                Капитан - {{item.user.name}}
+            </div>
+            <div>
+                Длительность работ - {{item.work_size}}
+            </div>
+            <div>
+                id участников - {{item.collaborators}}
+            </div>
+            <div>
+                Работа завершена - {% if item.is_finished == True %} Да {% else %} Нет {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    {% if current_user.is_authenticated %}
+        <a href="news" class="btn btn-secondary">Добавить новость</a>
+    {% endif %}
+{% endblock %}
