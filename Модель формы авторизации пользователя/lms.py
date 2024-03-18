@@ -1,6 +1,7 @@
 from flask import Flask, redirect, render_template
 from flask_login import current_user, login_user, LoginManager, login_required, logout_user
 from forms.user import RegisterForm, LoginForm
+from forms.jobs import JobsForm
 from data import db_session
 from data.jobs import Jobs
 from data.users import User
@@ -18,6 +19,28 @@ db_session.global_init("db/blogs.db")
 def load_user(user_id):
     db_sess = db_session.create_session()
     return db_sess.query(User).get(user_id)
+
+
+@app.route('/jobs',  methods=['GET', 'POST'])
+@login_required
+def add_news():
+    form = JobsForm()
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        jobs = Jobs()
+        jobs.team_leader = form.team_leader.data
+        jobs.job = form.job.data
+        jobs.collaborators = form.collaborators.data
+        jobs.work_size = form.work_size.data
+        jobs.start_date = form.start_date.data
+        jobs.end_date = form.end_date.data
+        jobs.is_finished = form.is_finished.data
+        current_user.jobs.append(jobs)
+        db_sess.merge(current_user)
+        db_sess.commit()
+        return redirect('/')
+    return render_template('jobs.html', title='Добавление новости', 
+                           form=form, current_user=current_user)
 
 
 @app.route("/")
@@ -80,3 +103,4 @@ def logout():
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
+    
