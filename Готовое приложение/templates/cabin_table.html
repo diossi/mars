@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+    </head>
+    <h2>Оформление каюты</h2>
+    <table>
+    <tr><th>Цвет стен</th><th>Эмблема {{sex}} {{age}}</th></tr>
+    {% if sex == 'male' %}
+        {% if age < 21 %}
+            <tr><td><img src="../../static/img/male_1.jpg" width="132" height="174"></td><td><img src="../../static/img/monster1.jpg" width="132" height="174"></td></tr>
+        {% else %}
+            <tr><td><img src="../../static/img/male_2.jpg" width="132" height="174"></td><td><img src="../../static/img/monster2.jpg" width="132" height="174"></td></tr>
+        {% endif %}
+    {% elif sex == 'female' %}
+        {% if age < 21 %}
+            <tr><td><img src="../../static/img/female_1.jpg" width="132" height="174"></td><td><img src="../../static/img/monster1.jpg" width="132" height="174"></td></tr>
+        {% else %}
+            <tr><td><img src="../../static/img/female_2.jpg" width="132" height="174"></td><td><img src="../../static/img/monster2.jpg" width="132" height="174"></td></tr>
+        {% endif %}
+    {% endif %}
+    </table>
+
+{% endblock %}
