@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    {% for item in departments %}
+        <div class="col-md6 border rounded">
+            <h2>Action # {{item.id}}</h2>
+            <div>
+                Название работ - {{item.title}}
+            </div>
+            <div>
+                Капитан - {{item.chief}}
+            </div>
+            <div>
+                Участники - {{item.members}}
+            </div>
+            <div>
+                Почта - {{item.email}}
+            </div>
+            {% if current_user.is_authenticated and (current_user == item.user or current_user.id == 1) %}
+                <div>
+                    <a href="/departments_add_edit/{{ item.id }}" class="btn btn-warning">
+                        Изменить
+                    </a>
+                    <a href="/departments_delete/{{ item.id }}" class="btn btn-danger">
+                        Удалить
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    {% if current_user.is_authenticated %}
+        <a href="departments_add" class="btn btn-secondary">Добавить</a>
+    {% endif %}
+{% endblock %}
