@@ -21,9 +21,9 @@ def training_scientists():
     return render_template('training.html', title='mars one', prof='scientists')
 
 
-@app.route('/list_prof')
-def list_prof_def():
-    return render_template('list_prof.html', list='ul', list_prof=list_prof)
+@app.route('/list_prof/<list>')
+def list_prof_def(list):
+    return render_template('list_prof.html', list=list, list_prof=list_prof)
 
 
 if __name__ == '__main__':
