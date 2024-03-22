@@ -1,0 +1,22 @@
+[
+    {"name": "Barsik",
+        "surname": 7,
+        "image": "../static/img/ing.png",
+        "prof": [
+        "Wiskas",
+        "Royal Canin",
+        "Purina",
+        "Hills",
+        "Brit Care"
+        ]},
+    {"name": "2",
+        "surname": 3,
+        "image": "../static/img/sci.png",
+        "prof": [
+        "Wiskas",
+        "Royal Canin",
+        "Purina",
+        "Hills",
+        "Brit Care"
+        ]}
+]
